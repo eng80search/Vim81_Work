@@ -1,0 +1,94 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/f9e6e3c1/
+#	basic.vim	/^nmap # #zz$/;"	m
+*	basic.vim	/^nmap * *zz$/;"	m
+,cd	plugins.vim	/^nnoremap <silent> ,cd :lcd %:h<CR>$/;"	m
+,h	basic.vim	/^nnoremap <silent>,h H$/;"	m
+,l	basic.vim	/^nnoremap <silent>,l L$/;"	m
+,m	basic.vim	/^nnoremap <silent>,m M$/;"	m
+,scd	plugins.vim	/^nmap <silent>,scd       :SQLU_GetColumnDef<CR>$/;"	m
+,scdt	plugins.vim	/^nmap <silent>,scdt      :SQLU_GetColumnDataType<CR>$/;"	m
+,scl	plugins.vim	/^nmap <silent>,scl       :SQLU_CreateColumnList<CR>$/;"	m
+,scp	plugins.vim	/^nmap <silent>,scp       :SQLU_CreateProcedure<CR>$/;"	m
+,sf	plugins.vim	/^vmap <silent>,sf        :SQLUFormatter<CR>$/;"	m
+/	basic.vim	/^nnoremap \/ \/\\v$/;"	m
+<BS>	plugins.vim	/^inoremap <expr><BS> neocomplete#smart_close_popup()."\\<C-h>"$/;"	m
+<C-Down>	basic.vim	/^noremap <C-Down> <C-w>+$/;"	m
+<C-Left>	basic.vim	/^noremap <C-Left> <C-w><$/;"	m
+<C-Right>	basic.vim	/^noremap <C-Right> <C-w>>$/;"	m
+<C-Up>	basic.vim	/^noremap <C-Up> <C-w>-$/;"	m
+<C-]>	basic.vim	/^nnoremap  <C-]> <C-]>zz$/;"	m
+<C-a>	plugins.vim	/^nnoremap <silent><C-a> :TagbarToggle<CR>$/;"	m
+<C-d>	basic.vim	/^noremap <C-d> :exe("bd")<CR>$/;"	m
+<C-e>	plugins.vim	/^nnoremap <silent><C-e> :NERDTreeToggle<CR>$/;"	m
+<C-g>	plugins.vim	/^inoremap <expr><C-g>     neocomplete#undo_completion()$/;"	m
+<C-h>	plugins.vim	/^inoremap <expr><C-h> neocomplete#smart_close_popup()."\\<C-h>"$/;"	m
+<C-h>	plugins.vim	/^nnoremap <silent><C-h> :MRU<CR>$/;"	m
+<C-j>	basic.vim	/^noremap <C-j> <C-d> "ページ半分のスクロール$/;"	m
+<C-k>	basic.vim	/^noremap <C-k> <C-u>$/;"	m
+<C-l>	plugins.vim	/^inoremap <expr><C-l>     neocomplete#complete_common_string()$/;"	m
+<C-n>	basic.vim	/^noremap <C-n> :exe("bn!")<CR>$/;"	m
+<C-p>	basic.vim	/^noremap <C-p> :exe("bp!")<CR>$/;"	m
+<C-s>	plugins.vim	/^nmap <silent><C-s> :ToggleNERDTreeAndTagbar<CR>$/;"	m
+<C-t>	basic.vim	/^nnoremap  <C-t> <C-t>zz$/;"	m
+<CR>	plugins.vim	/^inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>$/;"	m
+<Esc><Esc>	basic.vim	/^nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>$/;"	m
+<F3>	basic.vim	/^nnoremap <F3> :<C-u>setlocal relativenumber!<CR>$/;"	m
+<F8>	plugins.vim	/^nmap <F8> :ToggleNERDTreeAndTagbar<CR>$/;"	m
+<F9>	plugins.vim	/^nmap <F9> :TagbarToggle<CR>$/;"	m
+<M-g>	basic.vim	/^noremap <M-g>   :cd %:h<CR> :exe("!ctags -R --options=".expand($VIM)."\\\\ctags.cnf")<CR>$/;"	m
+<S-b>	basic.vim	/^noremap <S-b> <C-y>$/;"	m
+<S-f>	basic.vim	/^noremap <S-f> <C-e>$/;"	m
+<S-h>	basic.vim	/^noremap <S-h>   ^$/;"	m
+<S-l>	basic.vim	/^noremap <S-l>   \$$/;"	m
+<S-m>	basic.vim	/^noremap <silent><S-m> :call cursor(0,strlen(getline("."))\/2)<CR>$/;"	m
+<S-w>	basic.vim	/^noremap <S-w>   :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>$/;"	m
+<TAB>	plugins.vim	/^inoremap <expr><TAB>  pumvisible() ? "\\<C-n>" : "\\<TAB>"$/;"	m
+AdjustWindowHeight	basic.vim	/^function! AdjustWindowHeight(minheight, maxheight)$/;"	f
+AutoSyntastic	plugins.vim	/^    augroup AutoSyntastic$/;"	a
+Grep_Default_Filelist	plugins.vim	/^let Grep_Default_Filelist = '*\\.cs *\\.aspx *\\.aspx\\.cs *\\.html'$/;"	v
+Grep_Skip_Files	plugins.vim	/^let Grep_Skip_Files = '*\\.gif *\\.GIF *\\.jpg *\\.dll *\\.exe *\\.pdb *\\.cache *\\.png'$/;"	v
+GuiTabLabel	basic.vim	/^function! GuiTabLabel()$/;"	f
+LightlineFilename	plugins.vim	/^    function! LightlineFilename()$/;"	f
+LightlineFugitive	plugins.vim	/^    function! LightlineFugitive()$/;"	f
+LightlineModified	plugins.vim	/^    function! LightlineModified()$/;"	f
+LightlineReadonly	plugins.vim	/^    function! LightlineReadonly()$/;"	f
+MRU_Max_Entries	plugins.vim	/^let MRU_Max_Entries = 1000$/;"	v
+MRU_Window_Height	plugins.vim	/^let MRU_Window_Height = 15$/;"	v
+N	basic.vim	/^nmap N Nzz$/;"	m
+NERDTreeAutoUpdate	plugins.vim	/^function! NERDTreeAutoUpdate()$/;"	f
+NERDTreeHighlightFile	plugins.vim	/^function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)$/;"	f
+NERDTreeQuitOnOpen	plugins.vim	/^let NERDTreeQuitOnOpen = 0 "ファイルを開いたら閉じる場合は1$/;"	v
+NERDTreeWinSize	plugins.vim	/^let NERDTreeWinSize = 40 "Windowsサイズ設定$/;"	v
+[[	basic.vim	/^nnoremap  [[ [[zz$/;"	m
+]]	basic.vim	/^nnoremap  ]] ]]zz$/;"	m
+dbext_default_dbname	plugins.vim	/^let dbext_default_dbname="Temp"$/;"	v
+dbext_default_passwd	plugins.vim	/^let dbext_default_passwd="JA@dmin06"$/;"	v
+dbext_default_profile	plugins.vim	/^let dbext_default_profile=""$/;"	v
+dbext_default_srvname	plugins.vim	/^let dbext_default_srvname="localhost\\\\SQLEXPRESS2014"$/;"	v
+dbext_default_type	plugins.vim	/^let dbext_default_type="SQLSRV"$/;"	v
+dbext_default_user	plugins.vim	/^let dbext_default_user="sa"$/;"	v
+g:MRU_Use_CursorLine	plugins.vim	/^let g:MRU_Use_CursorLine = 1$/;"	v
+g:NERDTreeShowBookmarks	plugins.vim	/^let g:NERDTreeShowBookmarks=1 "ブックマーク初期表\示$/;"	v
+g:acp_enableAtStartup	plugins.vim	/^let g:acp_enableAtStartup = 0$/;"	v
+g:lightline	plugins.vim	/^let g:lightline = {$/;"	v
+g:neocomplete#enable_at_startup	plugins.vim	/^let g:neocomplete#enable_at_startup = 1$/;"	v
+g:neocomplete#enable_smart_case	plugins.vim	/^let g:neocomplete#enable_smart_case = 1$/;"	v
+g:neocomplete#keyword_patterns	plugins.vim	/^    let g:neocomplete#keyword_patterns = {}$/;"	v
+g:neocomplete#keyword_patterns	plugins.vim	/^let g:neocomplete#keyword_patterns['default'] = '\\h\\w*'$/;"	v
+g:neocomplete#sources#dictionary#dictionaries	plugins.vim	/^let g:neocomplete#sources#dictionary#dictionaries = {$/;"	v
+g:neocomplete#sources#omni#input_patterns	plugins.vim	/^  let g:neocomplete#sources#omni#input_patterns = {}$/;"	v
+g:neocomplete#sources#omni#input_patterns	plugins.vim	/^let g:neocomplete#sources#omni#input_patterns.perl = '\\h\\w*->\\h\\w*\\|\\h\\w*::'$/;"	v
+g:neocomplete#sources#syntax#min_keyword_length	plugins.vim	/^let g:neocomplete#sources#syntax#min_keyword_length = 3$/;"	v
+g:syntastic_mode_map	plugins.vim	/^    let g:syntastic_mode_map = { 'mode': 'passive' }$/;"	v
+highlightIdegraphicSpace	basic.vim	/^augroup highlightIdegraphicSpace$/;"	a
+n	basic.vim	/^nmap n nzz$/;"	m
+s:my_cr_function	plugins.vim	/^function! s:my_cr_function()$/;"	f
+s:syntastic	plugins.vim	/^    function! s:syntastic()$/;"	f
+{	basic.vim	/^nnoremap  { {zz$/;"	m
+}	basic.vim	/^nnoremap  } }zz$/;"	m

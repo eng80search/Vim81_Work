@@ -1,0 +1,32 @@
+# HG changeset patch
+# Parent 5a2d7f302b1d42b1ed917be4a2c09966f36cc99b
+Some embeded languages require init WinSock by hosting application
+
+diff --git a/src/gui_w32.c b/src/gui_w32.c
+index 9c60934..2e4e0db 100644
+--- a/src/gui_w32.c
++++ b/src/gui_w32.c
+@@ -5333,6 +5333,23 @@ gui_mch_prepare(int *argc, char **argv)
+ 	    }
+     }
+ #endif
++
++    /*
++     * Some embeded languages (if_*) require to initialize WinSock2 by hosting
++     * application.
++     */
++    {
++	WSADATA wsaData;
++	int wsaerr;
++	extern int WSInitialized;
++
++	/* Init WinSock */
++	wsaerr = WSAStartup(MAKEWORD(2, 2), &wsaData);
++#ifdef FEAT_JOB_CHANNEL
++	if (wsaerr == 0)
++	    WSInitialized = TRUE;
++#endif
++    }
+ }
+ 
+ /*

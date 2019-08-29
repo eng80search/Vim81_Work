@@ -1,0 +1,46 @@
+# HG changeset patch
+# Parent 4788b87d17786243e3d3b6fca78c4ff73026644b
+implement 'charspace' for Windows GUI
+
+diff --git a/src/option.c b/src/option.c
+index 5f4f5a3f8..1c25e9a95 100644
+--- a/src/option.c
++++ b/src/option.c
+@@ -771,6 +771,14 @@ static struct vimoption options[] =
+ 			    {(char_u *)0L, (char_u *)0L}
+ #endif
+ 			    SCTX_INIT},
++    {"charspace",   "csp",  P_NUM|P_NODEFAULT|P_VIM|P_RCLR,
++#ifdef FEAT_GUI
++			    (char_u *)&p_charspace, PV_NONE,
++#else
++			    (char_u *)NULL, PV_NONE,
++#endif
++			    {(char_u *)0L, (char_u *)0L}
++			    SCTX_INIT},
+     {"cindent",	    "cin",  P_BOOL|P_VI_DEF|P_VIM,
+ #ifdef FEAT_CINDENT
+ 			    (char_u *)&p_cin, PV_CIN,
+@@ -9155,7 +9163,7 @@ set_num_option(
+     }
+ 
+ #ifdef FEAT_GUI
+-    else if (pp == &p_linespace)
++    else if (pp == &p_linespace || pp == &p_charspace)
+     {
+ 	/* Recompute gui.char_height and resize the Vim window to keep the
+ 	 * same number of lines. */
+diff --git a/src/option.h b/src/option.h
+index d868ed039..9dfa79cb1 100644
+--- a/src/option.h
++++ b/src/option.h
+@@ -411,6 +411,9 @@ EXTERN int	p_deco;		/* 'delcombine' */
+ EXTERN char_u	*p_ccv;		/* 'charconvert' */
+ # endif
+ #endif
++#ifdef FEAT_GUI
++EXTERN long	p_charspace;	/* 'charspace' */
++#endif
+ #ifdef FEAT_CMDWIN
+ EXTERN char_u	*p_cedit;	/* 'cedit' */
+ EXTERN long	p_cwh;		/* 'cmdwinheight' */
