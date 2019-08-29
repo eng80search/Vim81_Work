@@ -25,7 +25,8 @@ call NERDTreeHighlightFile('csv',    'yellow',    'none', '#fcdb79', '#282c34')
 call NERDTreeHighlightFile('db',     'blue',      'none', '#4169e1', '#282c34')
 call NERDTreeHighlightFile('json',   'blue',      'none', '#8a2be2', '#282c34')
 call NERDTreeHighlightFile('py',     'yellow',    'none', '#fcdb79', '#282c34')
-call NERDTreeHighlightFile('asp',    'yellow',    'none', '#B9B069', '#282c34')
+call NERDTreeHighlightFile('aspx',   'red',       'none', '#ff7f50', '#282c34')
+call NERDTreeHighlightFile('vb','yellow',      'none', '#ffd700', '#282c34')
 call NERDTreeHighlightFile('cs',     'yellow',    'none', '#c4f74f', '#282c34')
 call NERDTreeHighlightFile('js',     'Red',       'none', '#76eddb', '#282c34')
 call NERDTreeHighlightFile('htm',    'brown',     'none', '#627009', '#282c34')
@@ -47,7 +48,7 @@ call NERDTreeHighlightFile('png',    'yellow',    'none', '#100000', '#282c34')
 call NERDTreeHighlightFile('PNG',    'yellow',    'none', '#100000', '#282c34')
 call NERDTreeHighlightFile('gif',    'yellow',    'none', '#A4A4A4', '#282c34')
 call NERDTreeHighlightFile('GIF',    'yellow',    'none', '#A4A4A4', '#282c34')
-call NERDTreeHighlightFile('config', 'yellow',    'none', '#fc3737', '#282c34')
+call NERDTreeHighlightFile('config', 'yellow',    'none', '#A4A4A4', '#282c34')
 
 "--------------------------------------------------------------------------------
 "NERDTree FilePath AutoRefresh
@@ -217,28 +218,28 @@ nmap <F8> :ToggleNERDTreeAndTagbar<CR>
 "      \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" },
 "      \ }
 "
-"    function! LightlineModified()
-"      if &filetype == "help"
-"        return ""
-"      elseif &modified
-"        return "+"
-"      elseif &modifiable
-"        return ""
-"      else
-"        return ""
-"      endif
-"    endfunction
-"
-"    function! LightlineReadonly()
-"      if &filetype == "help"
-"        return ""
-"      elseif &readonly
-"        return "\u2b64"
-"      else
-"        return ""
-"      endif
-"    endfunction
-"
+   function! LightlineModified()
+     if &filetype == "help"
+       return ""
+     elseif &modified
+       return "+"
+     elseif &modifiable
+       return ""
+     else
+       return ""
+     endif
+   endfunction
+
+   function! LightlineReadonly()
+     if &filetype == "help"
+       return ""
+     elseif &readonly
+       return "RO"
+     else
+       return ""
+     endif
+   endfunction
+
 "    function! LightlineFugitive()
 "      if exists("*fugitive#head")
 "        let branch = fugitive#head()
@@ -248,7 +249,8 @@ nmap <F8> :ToggleNERDTreeAndTagbar<CR>
 "    endfunction
 "
    function! LightlineFilename()
-     return ('' != expand('%:p') ? expand('%:p') : '[No Name]')
+     " return ('' != expand('%:p') ? expand('%:p') : '[No Name]')
+     return ('' != expand('%:p') ? '[Buf:'.bufnr('%').'] '.expand('%:p') : '[Buf:'.bufnr('%').'] '.'(No Name)')
    endfunction
 
     "function! LightlineMode()
@@ -268,15 +270,21 @@ nmap <F8> :ToggleNERDTreeAndTagbar<CR>
       " \ }
 
 
+
+" let g:lightline                  = {}
+" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+" let g:lightline.component_type   = {'buffers': 'tabsel'}
+
 let g:lightline = {
       \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive',
       \   'filename': 'LightlineFilename',
       \   'readonly': 'LightlineReadonly',
       \   'modified': 'LightlineModified',
       \ },
       \ 'colorscheme': 'wombat',
       \ }
+
 
 "--------------------------------------------------------------------------------
 " syntastic プラグインのための設定 
