@@ -261,7 +261,7 @@ set guitablabel=%{GuiTabLabel()}
 function! GuiTabLabel()
 
     let length = 30
-    let label = expand("%:t")
+    let label ='['.bufnr('%').']'. expand("%:t")
     let bufnrlist = tabpagebuflist(v:lnum)
 
     for bufnr in bufnrlist
