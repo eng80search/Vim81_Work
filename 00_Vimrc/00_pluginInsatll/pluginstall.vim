@@ -36,7 +36,7 @@ call plug#begin('$VIM/plugins')
     Plug 'tpope/vim-surround'
 
     " vim-bookmarks.vim Vim bookmark plugin
-    Plug 'MattesGroeger/vim-bookmarks'
+    " Plug 'MattesGroeger/vim-bookmarks'
 
     " quick run Plugin 
     " Plug 'thinca/vim-quickrun'

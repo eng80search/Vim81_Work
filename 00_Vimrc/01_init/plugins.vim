@@ -480,22 +480,22 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:9999'
 "--------------------------------------------------------------------------------
 "マークの色設定
 
-let g:bookmark_sign = '>>'
-let g:bookmark_annotation_sign = '##'
+" let g:bookmark_sign = '>>'
+" let g:bookmark_annotation_sign = '##'
+"
+" let g:bookmark_location_list = 1
+" let g:bookmark_disable_ctrlp = 1
+"
+" let g:bookmark_no_default_key_mappings = 1
 
-let g:bookmark_location_list = 1
-let g:bookmark_disable_ctrlp = 1
 
-let g:bookmark_no_default_key_mappings = 1
-
-
-nmap ml <Plug>BookmarkShowAll
-nmap md <Plug>BookmarkClear
-nmap mm <Plug>BookmarkToggle
-nmap mi <Plug>BookmarkAnnotate
-nmap mn <Plug>BookmarkNext
-nmap mp <Plug>BookmarkPrev
-nmap mx <Plug>BookmarkClearAll
+" nmap ml <Plug>BookmarkShowAll
+" nmap md <Plug>BookmarkClear
+" nmap mm <Plug>BookmarkToggle
+" nmap mi <Plug>BookmarkAnnotate
+" nmap mn <Plug>BookmarkNext
+" nmap mp <Plug>BookmarkPrev
+" nmap mx <Plug>BookmarkClearAll
 
 "Default is bellow
 "Add/remove bookmark at current line        mm    :BookmarkToggle
