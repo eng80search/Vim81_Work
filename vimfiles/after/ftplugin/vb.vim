@@ -10,8 +10,8 @@
 
  " echo "**** Vb ftplugin"
 
- let b:next='\v^\s*public\s+(sub|function)|\v^\s*protected\s+(sub|function)|\v^\s*private\s+(sub|function)|\v^\s*friend\s+(sub|function)|v^\s+(sub|function)'
- let b:prev='\v^\s*public\s+(sub|function)|\v^\s*protected\s+(sub|function)|\v^\s*private\s+(sub|function)|\v^\s*friend\s+(sub|function)|v^\s+(sub|function)'
+ let b:next='\v^\s*public\s+(sub|function)|\v^\s*protected\s+(sub|function)|\v^\s*private\s+(sub|function)|\v^\s*friend\s+(sub|function)|\v^\s+(sub|function)'
+ let b:prev='\v^\s*public\s+(sub|function)|\v^\s*protected\s+(sub|function)|\v^\s*private\s+(sub|function)|\v^\s*friend\s+(sub|function)|\v^\s+(sub|function)'
 
  execute "nnoremap <silent> <buffer> ]] :call <SID>Vb_jump(b:next, 'forward')<CR>"
  execute "nnoremap <silent> <buffer> [[ :call <SID>Vb_jump(b:prev, 'backward')<CR>"

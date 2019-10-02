@@ -108,7 +108,7 @@ call plug#begin('$VIM/plugins')
     " Plug 'davidhalter/jedi-vim'
 
     " pt.vim Vim plugin for the platinum_search
-    "Plug 'nazo/pt.vim'
+    Plug 'nazo/pt.vim'
 
 
     " NERD syntax highlighting
