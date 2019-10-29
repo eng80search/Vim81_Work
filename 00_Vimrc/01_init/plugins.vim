@@ -8,7 +8,7 @@
 "NERDTree Setting
 "--------------------------------------------------------------------------------
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen = 0 "ファイルを開いたら閉じる場合は1
+let NERDTreeQuitOnOpen = 1 "ファイルを開いたら閉じる場合は1 そのままの場合は0
 let g:NERDTreeShowBookmarks=1 "ブックマーク初期表示
 let NERDTreeWinSize = 40 "Windowsサイズ設定
 let g:NERDTreeCopycmd= 'cp -r '
@@ -582,7 +582,8 @@ let g:NERDTrimTrailingWhitespace = 1
 "--------------------------------------------------------------------------------
 let g:match_ignorecase = 1
 " let g:match_words = "<\t*begin>:<\t*end>"
-let g:match_words = "\v^\tbegin$:\v^\tend$"
+" let b:match_words = "<public class>:<end class>"
+let b:match_words = "<:>,<div>:</div>"
 
 "--------------------------------------------------------------------------------
 "vim 8.1 terminal Setting

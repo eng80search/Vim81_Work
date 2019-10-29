@@ -47,7 +47,13 @@ hi Terminal guibg=black
 " vimを起動時に最大化する
 au GUIEnter * simalt ~x
 
+" UTF-8モードにする
+set enc=utf-8
+
 " フォント設定
 set guifont=Ricty_Diminished:h13
 " 全角文字の設定
 set guifontwide=Ricty_Diminished:h13
+
+" DirectXを有効にする
+set rop=type:directx,geom:1,renmode:5
