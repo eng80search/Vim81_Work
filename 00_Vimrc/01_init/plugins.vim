@@ -647,6 +647,9 @@ autocmd FileType java noremap <silent><F9>  :AsyncRun java %:t:r<CR>
 autocmd FileType java noremap <silent><F12> :AsyncStop <CR>
 autocmd FileType java let g:asyncrun_encs = "cp932"
 
+autocmd FileType ps1 noremap <silent><F9>  :AsyncRun %<CR>
+autocmd FileType ps1 let g:asyncrun_encs = "cp932"
+
 "--------------------------------------------------------------------------------
 "Python3 Setting
 "--------------------------------------------------------------------------------
