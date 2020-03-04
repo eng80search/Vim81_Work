@@ -313,14 +313,21 @@ set pythonthreedll=python37.dll
 "!コマンドをcmdからWindows Powershellに変更
 "PSプロファイルを読み込まないプレーンなPowerShellを起動する場合
 "--------------------------------------------------------------------------------
-if has('win32') || has('win64')
-    set shell=powershell.exe
-    set shellcmdflag=-c
-    set shellquote=\"
-    set shellxquote=
-endif
+" if has('win32') || has('win64')
+"     set shell=powershell.exe
+"     set shellcmdflag=-c
+"     set shellquote=\"
+"     set shellxquote=
+" endif
 
 
 "--------------------------------------------------------------------------------
 set updatetime=2
+
+"--------------------------------------------------------------------------------
+"コマンドに別名をつける
+"--------------------------------------------------------------------------------
+
+" 差分モードのファイルを一気に消す
+:command Bdd bd|bd
 

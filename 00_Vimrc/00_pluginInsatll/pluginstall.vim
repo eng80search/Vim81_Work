@@ -20,8 +20,8 @@ call plug#begin('$VIM/plugins')
     " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
     Plug 'junegunn/vim-easy-align'
 
-    " " neocomplete.vim
-    " Plug 'Shougo/neocomplete.vim'
+    " neocomplete.vim
+    Plug 'Shougo/neocomplete.vim'
 
     " ctrlp.vim Vim plugin for Fuzzy file
     " Plug 'kien/ctrlp.vim'

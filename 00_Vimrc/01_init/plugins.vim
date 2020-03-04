@@ -636,6 +636,7 @@ let $PYTHONUNBUFFERED=1
 autocmd FileType python noremap <silent><F9>  :AsyncRun python %<CR>
 autocmd FileType python noremap <silent><F10> :vert term  python -m ipdb %<CR>
 autocmd FileType python noremap <silent><F12> :AsyncStop <CR>
+autocmd FileType python let g:asyncrun_encs = "cp932"
 
 autocmd FileType cs noremap <silent><F9>  :AsyncRun msbuild<CR>
 autocmd FileType cs noremap <silent><F12> :AsyncStop <CR>
