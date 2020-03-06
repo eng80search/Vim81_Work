@@ -66,7 +66,7 @@ call plug#begin('$VIM/plugins')
     Plug 'mattn/emmet-vim'
 
     "A code-completion engine for Vim
-    Plug 'Valloric/YouCompleteMe'
+    " Plug 'Valloric/YouCompleteMe'
 
     " Git Plugin
     " Plug 'tpope/vim-fugitive'
