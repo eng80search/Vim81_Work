@@ -664,3 +664,17 @@ endif
 "Markdown-preview setting
 "--------------------------------------------------------------------------------
 autocmd FileType markdown noremap <silent><C-p>  :MarkdownPreview<CR>
+
+"--------------------------------------------------------------------------------
+" vim-indent-guides setting
+"--------------------------------------------------------------------------------
+" Disable the plugin on Vim startUp
+let g:indent_guides_enable_on_vim_startup = 0
+
+set ts=4 sw=4 et
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
+autocmd FileType html,js,python IndentGuidesEnable
+" autocmd FileType js IndentGuidesEnable
+

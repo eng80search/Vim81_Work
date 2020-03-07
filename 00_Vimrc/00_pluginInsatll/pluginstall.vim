@@ -110,6 +110,8 @@ call plug#begin('$VIM/plugins')
     " pt.vim Vim plugin for the platinum_search
     Plug 'nazo/pt.vim'
 
+    " visually displaying indent levels in Vim
+    Plug 'nathanaelkane/vim-indent-guides'
 
     " NERD syntax highlighting
     " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
