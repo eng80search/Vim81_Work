@@ -1,14 +1,18 @@
 " Vim filetype plugin file
 " Language: vb
 "
- " echo "This is Vb ftplugin"
+ echo "This is Vb ftplugin"
 
- " if exists("b:did_ftplugin") | finish | endif
- " let b:did_ftplugin = 1
- " let s:keepcpo= &cpo
- " set cpo&vim
+ if exists("b:did_ftplugin_vb") | finish | endif
+ let b:did_ftplugin_vb = 1
+
+ let s:keepcpo= &cpo
+ set cpo&vim
 
  " echo "**** Vb ftplugin"
+
+"  " matchit plugin setting
+let b:match_words .=  ',\%(^\s*\)\@<=\%(\<\%(private\|public\)\>\s\+\)\=\<class\>\s\+:\%(^\s*\)\@<=\<end\>\s\+\<class\>'
 
  let b:next='\v^\s*public\s+(sub|function)|\v^\s*protected\s+(sub|function)|\v^\s*private\s+(sub|function)|\v^\s*friend\s+(sub|function)|\v^\s+(sub|function)'
  let b:prev='\v^\s*public\s+(sub|function)|\v^\s*protected\s+(sub|function)|\v^\s*private\s+(sub|function)|\v^\s*friend\s+(sub|function)|\v^\s+(sub|function)'
@@ -31,5 +35,5 @@
     endfun
 endif
 
-" let &cpo = s:keepcpo
-" unlet s:keepcpo
+let &cpo = s:keepcpo
+unlet s:keepcpo

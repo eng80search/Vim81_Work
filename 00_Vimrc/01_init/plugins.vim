@@ -121,6 +121,14 @@ let g:MRU_Use_CursorLine = 1
 
 
 "--------------------------------------------------------------------------------
+"vim-session Setting
+"--------------------------------------------------------------------------------
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+
+
+
+"--------------------------------------------------------------------------------
 "Tagbarの設定
 "--------------------------------------------------------------------------------
 nnoremap <silent><C-a> :TagbarToggle<CR>
@@ -183,108 +191,40 @@ nmap <F8> :ToggleNERDTreeAndTagbar<CR>
 "--------------------------------------------------------------------------------
 "【lightline.vim】
 "--------------------------------------------------------------------------------
-"[2b60] Branch symbol
-"[2b61] LN (line) symbol
-"[2b62] FT symbol 1
-"[2b63] FT symbol 2
-"[2b64] Padlock (closed) symbol
-"[2b80] Hard right arrow
-"[2b81] Soft right arrow
-"[2b82] Hard left arrow
-"[2b83] Soft left arrow
 
-"let g:lightline = {
-"      \ 'colorscheme': 'solarized',
-"      \ 'active': {
-"      \   'left': [ [ 'mode', 'paste' ],
-"      \             [ 'fugitive', 'filename' ] ],
-"      \   'right': [ [ 'syntastic', 'lineinfo' ],
-"      \              [ 'percent' ],
-"      \              [ 'fileformat', 'fileencoding', 'filetype' ] ],
-"      \   },
-"      \ 'component_function': {
-"      \   'fugitive': 'LightlineFugitive',
-"      \   'filename': 'LightlineFilename',
-"      \   'readonly': 'LightlineReadonly',
-"      \   'modified': 'LightlineModified',
-"      \ },
-"      \ 'component_expand': {
-"      \   'syntastic': 'SyntasticStatuslineFlag',
-"      \ },
-"      \ 'component_type': {
-"      \   'syntastic': 'error',
-"      \ },
-"      \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-"      \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" },
-"      \ }
-"
-   function! LightlineModified()
-     if &filetype == "help"
-       return ""
-     elseif &modified
-       return "+"
-     elseif &modifiable
-       return ""
-     else
-       return ""
-     endif
-   endfunction
-
-   function! LightlineReadonly()
-     if &filetype == "help"
-       return ""
-     elseif &readonly
-       return "RO"
-     else
-       return ""
-     endif
-   endfunction
-
-"    function! LightlineFugitive()
-"      if exists("*fugitive#head")
-"        let branch = fugitive#head()
-"        return branch !=# '' ? "\u2b60 ".branch : ''
-"      endif
-"      return ''
-"    endfunction
-"
-   function! LightlineFilename()
-     " return ('' != expand('%:p') ? expand('%:p') : '[No Name]')
+function! LightlineFilename()
      return ('' != expand('%:p') ? '[Buf:'.bufnr('%').'] '.expand('%:p') : '[Buf:'.bufnr('%').'] '.'(No Name)')
    endfunction
 
-    "function! LightlineMode()
-    "    let fname = expand('%:t')
-    "    return fname == '__Tagbar__' ? 'Tagbar' :
-    "       \ fname == 'ControlP' ? 'CtrlP' :
-    "       \ fname == '__Gundo__' ? 'Gundo' :
-    "       \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-    "       \ fname =~ 'NERD_tree' ? 'NERDTree' :
-    "       \ &ft == 'unite' ? 'Unite' :
-    "       \ &ft == 'vimfiler' ? 'VimFiler' :
-    "       \ &ft == 'vimshell' ? 'VimShell' :
-    "       \ winwidth(0) > 60 ? lightline#mode() : ''
-    "endfunction
-    " let g:lightline = {
-      " \ 'colorscheme': 'wombat',
-      " \ }
-
-
-
-" let g:lightline                  = {}
-" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-" let g:lightline.component_type   = {'buffers': 'tabsel'}
+function! LightlineReadonly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return "RO"
+    else
+        return ""
+    endif
+endfunction
 
 let g:lightline = {
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \   'readonly': 'LightlineReadonly',
-      \   'modified': 'LightlineModified',
-      \ },
-      \ 'colorscheme': 'wombat',
-      \ }
-
+          \ 'active': {
+          \   'left': [ 
+          \             ['mode','paste'],
+          \             ['readonly','modified','filename'] 
+          \           ],
+          \  'right': [
+          \             [ 'lineinfo' ],
+          \             [ 'percent' ],
+          \             [ 'fileformat', 'fileencoding', 'filetype' ], 
+          \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]
+          \           ] 
+          \           },
+          \  'component_function': {
+          \        'filename': 'LightlineFilename',
+          \        'readonly': 'LightlineReadonly',
+          \  },
+          \ 'colorscheme': 'wombat',
+          \ }
 
 "--------------------------------------------------------------------------------
 " syntastic プラグインのための設定 
@@ -568,7 +508,11 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_java = 1
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCustomDelimiters = {
+            \ 'xml': { 'left': '<!--', 'right': '--!>' },
+            \'c': { 'left': '/**','right': '*/' } 
+            \ }
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
@@ -580,10 +524,20 @@ let g:NERDTrimTrailingWhitespace = 1
 "--------------------------------------------------------------------------------
 "tmhedberg/matchit Setting
 "--------------------------------------------------------------------------------
-let g:match_ignorecase = 1
+" let g:match_ignorecase = 1
 " let g:match_words = "<\t*begin>:<\t*end>"
 " let b:match_words = "<public class>:<end class>"
-let b:match_words = "<:>,<div>:</div>"
+" let b:match_words = "<:>,<div>:</div>"
+
+
+"--------------------------------------------------------------------------------
+"andymass/vim-matchup Setting
+"--------------------------------------------------------------------------------
+let g:matchup_matchparen_offscreen = {}
+" 入れ子探しの深さを3500にする
+let g:matchup_delim_stopline       = 3500 
+
+
 
 "--------------------------------------------------------------------------------
 "vim 8.1 terminal Setting
